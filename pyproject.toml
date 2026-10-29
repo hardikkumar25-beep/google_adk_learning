@@ -1,0 +1,20 @@
+[project]
+name = "google-adk-prac"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "hardikkumar25-beep", email = "hardikkumar.work25@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "google-adk>=2.13.0",
+    "ipykernel>=7.4.0",
+]
+
+[project.scripts]
+google-adk-prac = "google_adk_prac:main"
+
+[build-system]
+requires = ["uv_build>=0.13.3,<0.14.0"]
+build-backend = "uv_build"
