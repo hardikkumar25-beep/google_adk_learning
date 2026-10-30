@@ -1,8 +1,17 @@
-from google.adk.agents.llm_agent import Agent
+from google.adk import Agent
+from datetime import date
+from pydantic import Field,BaseModel
 
-root_agent = Agent(
+class TodoItem(BaseModel):
+    task: str = Field(description="Task name")
+    due_date: date = Field(description="YYYY-MM-DD format")
+    priority: str = Field(description="low/medium/high")
+
+todo_agent = Agent(
     model='gemini-3.5-flash',
-    name='root_agent',
-    description='A helpful assistant for user questions.',
-    instruction='Answer user questions to the best of your knowledge',
+    name='todo_agent',
+    instruction='Generate todo items in exact JSON format',
+    output_schema=TodoItem,
+    output_key="todo"
 )
+
